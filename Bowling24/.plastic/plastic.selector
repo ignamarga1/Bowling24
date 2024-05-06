@@ -1,0 +1,4 @@
+repository "Bowling24@Barikla@cloud"
+  path "/"
+    br "/main"
+    co "/main"
