@@ -35,7 +35,7 @@ public class Aprendiz_1_incognita : MonoBehaviour
         if (ESTADO == "Sin conocimiento") StartCoroutine("Entrenamiento");              //Lanza el proceso de entrenamiento                                              
     }
     IEnumerator Entrenamiento()
-    {   casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Experiencias.arff"));  //Lee fichero con las variables y experiencias
+    {   casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Aprendizaje Datos/Experiencias.arff"));  //Lee fichero con las variables y experiencias
 
         if (casosEntrenamiento.numInstances() < 10)
             for (float Fx = 1; Fx <= valorMaximoFx; Fx = Fx + pasoFx)                   //BUCLE de planificación de la fuerza FX durante el entrenamiento
