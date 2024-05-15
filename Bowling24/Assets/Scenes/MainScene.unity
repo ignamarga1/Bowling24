@@ -3823,6 +3823,7 @@ GameObject:
   - component: {fileID: 1151222079}
   - component: {fileID: 1151222078}
   - component: {fileID: 1151222077}
+  - component: {fileID: 1151222081}
   m_Layer: 0
   m_Name: NPC_WekaPrueba
   m_TagString: Untagged
@@ -3916,6 +3917,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1151222081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151222076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f68513d151482f4eb60fe652a8cdb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pelota: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
+  valorMaximoFx: 10
+  pasoFx: 1
+  Fy_fijo: 10
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0
