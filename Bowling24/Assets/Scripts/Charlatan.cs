@@ -1,6 +1,7 @@
 using OpenAI_API;
 using OpenAI_API.Chat;
 using OpenAI_API.Models;
+using OpenAI_API.Completions;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Net.Mime.MediaTypeNames;
 
 public class Charlatan : MonoBehaviour
 {
@@ -22,7 +24,7 @@ public class Charlatan : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        api = new OpenAIAPI("aqui va el secreto (api key)");
+        api = new OpenAIAPI("");
         IniciarConversacion();
     }
 
@@ -36,36 +38,35 @@ public class Charlatan : MonoBehaviour
     {
         messages = new List<ChatMessage> {    new ChatMessage(ChatMessageRole.System,
 
-      "Tu nombre es Toto Fuentes."
-      //Describa el Rol del NPC que usa este script. Su nombre, su personalidad con adjetivos. Diga sus limitaciones.
+          "Tu nombre es Toto Fuentes."
+          //Describa el Rol del NPC que usa este script. Su nombre, su personalidad con adjetivos. Diga sus limitaciones.
 
-      //ROL 1: Toto COMO BOLERO:
-         +"Eres un señor que lleva siendo propietario de una bolera desde hace 30 años. Eres una persona estricta con las "
-         +"reglas y que solo sabe hablar español. La persona con la que usted habla la vamos a llamar Jugador."      
+          //ROL 1: Toto COMO BOLERO:
+             +"Eres un señor NPC que lleva siendo propietario de una bolera desde hace 30 años. Eres una persona estricta con las "
+             +" reglas y que solo sabe hablar español. La persona con la que usted habla la vamos a llamar Jugador."      
      
-         //Comportamiento ante situaciones normales incluidos casos especiales 
-         +"El jugador quiere que le subas las barras laterales en la pista en la que él está jugando actualmente."
-         +"Tú deber es negar esa petición no importa que argumento te lance hasta que se canse y ceda a jugar sin las barras laterales."
-         + "Uno de tus argumentos más fuertes será que las barras laterales solo se pone cuando hay niños y Jugador no es uno. Las reglas son las reglas."      
-     )};
+             //Comportamiento ante situaciones normales incluidos casos especiales 
+             +"El jugador quiere que le subas las barras laterales en la pista en la que él está jugando actualmente."
+             +"Tú deber es NEGAR esa petición no importa que argumento te lance hasta que se canse y ceda a jugar sin las barras laterales."
+             + "Uno de tus argumentos más fuertes será que las barras laterales solo se pone cuando hay niños y Jugador no es un niño. Las reglas son las reglas y tú no vas a dejar que alguien las rompa."      
+         )};
     }
 
     public async void ResponderPregunta(string mensaje)
     {
         // Enviar el mensaje a la API de OpenAI para generar una respuesta
-        //var request = new CompletionRequest
-        //{
-        //    Model = "text-davinci-003", // Este es el modelo de lenguaje a utilizar, "davinci" es uno de los modelos disponibles
-       //     MaxTokens = 50,
-        //    Temperature = 0.7,
-        //    Prompt = mensaje
-        //};
-
-        //var response = await api.CreateCompletion(request);
+        var response = await api.Completions.CreateCompletionAsync(new CompletionRequest
+        {
+            Model = "babbage-002",
+            MaxTokens = 200,
+            Temperature = 0.2,
+            Prompt = mensaje
+        });
 
         // Imprimir la respuesta generada por OpenAI
-        //UnityEngine.Debug.Log("NPCBolera: " + response.choices[0].text.Trim());
+        UnityEngine.Debug.Log("NPCBolera: " + response.Completions[0].Text.Trim());
 
-        //NPCJugador.ResponderPregunta(mensaje);
+        // Reenviar la respuesta al NPCJugador
+        NPCJugador.GetComponent<ChatPlayer>().ResponderPregunta(response.Completions[0].Text.Trim());
     }
 }
