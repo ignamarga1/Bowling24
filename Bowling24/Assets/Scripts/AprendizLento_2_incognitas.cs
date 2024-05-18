@@ -36,10 +36,10 @@ public class AprendizLento_2_incognitas : MonoBehaviour
     {
 
         //Uso de una tabla vacía:
-        casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Iniciales_Experiencias.arff"));  //Lee fichero con variables. Sin instancias
-        
+        casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Aprendizaje Datos/Iniciales_Experiencias.arff"));  //Lee fichero con variables. Sin instancias
+
         //Uso de una tabla con los datos del último entrenamiento:
-        //casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Finales_Experiencias.arff"));    //... u otro con muchas experiencias
+        //casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Aprendizaje Datos/Finales_Experiencias.arff"));    //... u otro con muchas experiencias
 
         if (casosEntrenamiento.numInstances() < 10)
         {
