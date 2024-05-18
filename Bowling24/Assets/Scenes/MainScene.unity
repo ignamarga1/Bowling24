@@ -4939,9 +4939,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pelota: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
-  valorMaximoFx: 10
+  valorMaximoFx: 100
   pasoFx: 1
-  Fy_fijo: 10
+  Fy_fijo: 1
 --- !u!114 &1151222082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4956,8 +4956,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
   bolosObjetivo: {fileID: 247762196}
-  valorMaximoFx: 10
-  pasoFx: 1
+  valorMaximoFx: 20
+  pasoFx: 0
+  alturaInicialBola: 1.5
+  distanciaInicialBola: 2
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0
