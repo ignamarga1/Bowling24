@@ -52,7 +52,7 @@ public class AprendizajeBolos : MonoBehaviour
                 {
                     instanciaBola = Instantiate(bola) as GameObject;
                     Rigidbody rb = instanciaBola.GetComponent<Rigidbody>();                 // Crea una bola con físicas
-                    rb.AddForce(new Vector3(0, Fy, Fx), ForceMode.Impulse);                 // y la lanza con las fuerza Fx y Fy
+                    rb.AddForce(new Vector3(Fx, Fy, 0), ForceMode.Impulse);                 // y la lanza con las fuerza Fx y Fy
                     yield return new WaitUntil(() => (rb.transform.position.y < 0));        // Espera a que la bola llegue a los bolos o se detenga
 
                     Instance casoAaprender = new Instance(casosEntrenamiento.numAttributes());
@@ -163,7 +163,7 @@ public class AprendizajeBolos : MonoBehaviour
             {
                 instanciaBola = Instantiate(bola) as GameObject;
                 r = instanciaBola.GetComponent<Rigidbody>();                                                            // EN EL JUEGO: utiliza la bola física del juego (si no existe la crea)
-                r.AddForce(new Vector3(0, mejorFuerzaY, mejorFuerzaX), ForceMode.Impulse);                              // la lanza en el videojuego con la fuerza encontrada
+                r.AddForce(new Vector3(mejorFuerzaX, mejorFuerzaY, 0), ForceMode.Impulse);                              // la lanza en el videojuego con la fuerza encontrada
                 print("DECISION REALIZADA: Se lanzó bola con fuerza Fx = " + mejorFuerzaX + " y Fy = " + mejorFuerzaY);
                 ESTADO = "Acción realizada";
             }
