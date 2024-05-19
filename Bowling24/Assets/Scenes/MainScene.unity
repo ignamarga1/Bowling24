@@ -4846,8 +4846,8 @@ GameObject:
   - component: {fileID: 1151222079}
   - component: {fileID: 1151222078}
   - component: {fileID: 1151222077}
-  - component: {fileID: 1151222081}
   - component: {fileID: 1151222082}
+  - component: {fileID: 1151222084}
   - component: {fileID: 1151222083}
   m_Layer: 0
   m_Name: NPC_WekaPrueba
@@ -4943,22 +4943,6 @@ Transform:
   - {fileID: 140624963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151222081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151222076}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f68513d151482f4eb60fe652a8cdb68, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pelota: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
-  valorMaximoFx: 100
-  pasoFx: 1
-  Fy_fijo: 1
 --- !u!114 &1151222082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4982,15 +4966,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1151222076}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f416ea98d2b441944b957578554ca23d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
+  bolosObjetivo: {fileID: 247762196}
+  valorMaximoFx: 10
+  valorMaximoFy: 11
+  paso: 2
+  Velocidad_Simulacion: 2
+--- !u!114 &1151222084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151222076}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc3dc0bc9b3aa1148bda18420b4e5962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
   bolosObjetivo: {fileID: 247762196}
   valorMaximoFz: 10
-  valorMaximoFy: 3
+  valorMaximoFy: 5
   paso: 1
-  Velocidad_Simulacion: 50
+  Velocidad_Simulacion: 1
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0

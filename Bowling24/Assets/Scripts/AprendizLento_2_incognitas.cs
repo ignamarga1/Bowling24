@@ -12,7 +12,7 @@ using weka.classifiers.functions;
 using weka.classifiers;
 using weka.core.converters;
 
-public class AprendizLento_3_incognitas : MonoBehaviour
+public class AprendizLento_2_incognitas : MonoBehaviour
 {
     private string ESTADO = "Sin conocimiento";
     public GameObject bola, bolosObjetivo;
