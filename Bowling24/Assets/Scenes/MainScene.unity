@@ -530,10 +530,9 @@ GameObject:
   - component: {fileID: 111728108}
   - component: {fileID: 111728113}
   - component: {fileID: 111728112}
-  - component: {fileID: 111728115}
-  - component: {fileID: 111728116}
+  - component: {fileID: 111728117}
   m_Layer: 0
-  m_Name: Player
+  m_Name: NPC_Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -668,45 +667,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!143 &111728115
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111728107}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &111728116
+--- !u!114 &111728117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111728107}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51359e17222df0c4fa208579e1b32871, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c983c962d5be24429d992bbed16f2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCBolera: {fileID: 996052824}
+  Entrada: 
+  Salida: 
+  pedro: {fileID: 996052824}
+  dialogoSoloConHumano: 0
 --- !u!1 &140624960
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,27 +3636,14 @@ GameObject:
   - component: {fileID: 996052828}
   - component: {fileID: 996052827}
   - component: {fileID: 996052826}
-  - component: {fileID: 996052825}
+  - component: {fileID: 996052830}
   m_Layer: 0
-  m_Name: NPCBolero
+  m_Name: NPC_Bolero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &996052825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 996052824}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29ea4aa535143545b34a945727b5b11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCJugador: {fileID: 111728107}
 --- !u!65 &996052826
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3761,12 +3724,27 @@ Transform:
   m_GameObject: {fileID: 996052824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.95, y: 2.5, z: -36.26}
+  m_LocalPosition: {x: 10.7, y: 2.5, z: -54.5}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &996052830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996052824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00511e1dfc75e049a126941b467a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Entrada: 
+  Salida: 
+  juan: {fileID: 111728107}
 --- !u!1 &1009621307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4659,18 +4637,1845 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151222076}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f416ea98d2b441944b957578554ca23d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saberPredecirDistancia:
+    m_Debug: 0
+    m_instances:
+      m_RelationName: 
+      m_Attributes:
+        m_Size: 0
+        m_CapacityIncrement: 1
+        m_CapacityMultiplier: 2
+      m_Instances:
+        m_Size: 0
+        m_CapacityIncrement: 1
+        m_CapacityMultiplier: 2
+      m_ClassIndex: 0
+      m_Lines: 0
+      attIdx4Randomization: 0
+      attIdxOrigValues: []
+    m_ruleSet:
+      m_Size: 0
+      m_CapacityIncrement: 1
+      m_CapacityMultiplier: 2
+    m_generateRules: 0
+    m_unsmoothedPredictions: 0
+    m_replaceMissing:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_IgnoreClass: 0
+      m_ClassIndex: -1
+      m_ModesAndMeans: []
+    m_nominalToBinary:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_Numeric: 1
+      m_TransformAll: 0
+      m_needToTransform: 0
+    m_removeUseless:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_removeFilter:
+        m_OutputFormat:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_OutputQueue:
+          m_Head:
+            this$0:
+              m_Head:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Tail:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Size: 0
+          m_Tail:
+            this$0:
+              m_Head:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Tail:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Size: 0
+          m_Size: 0
+        m_OutputStringAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputStringAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_OutputRelAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputRelAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputFormat:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_NewBatch: 1
+        m_FirstBatchDone: 0
+        m_SelectCols:
+          m_RangeStrings:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Invert: 1
+          m_SelectFlags: []
+          m_Upper: -1
+        m_SelectedAttributes: 
+      m_maxVariancePercentage: 99
+    m_saveInstances: 0
+    m_regressionTree: 0
+    m_useUnpruned: 0
+    m_minNumInstances: 4
+  saberPredecirFuerzaX:
+    m_Debug: 0
+    m_instances:
+      m_RelationName: 
+      m_Attributes:
+        m_Size: 0
+        m_CapacityIncrement: 1
+        m_CapacityMultiplier: 2
+      m_Instances:
+        m_Size: 0
+        m_CapacityIncrement: 1
+        m_CapacityMultiplier: 2
+      m_ClassIndex: 0
+      m_Lines: 0
+      attIdx4Randomization: 0
+      attIdxOrigValues: []
+    m_ruleSet:
+      m_Size: 0
+      m_CapacityIncrement: 1
+      m_CapacityMultiplier: 2
+    m_generateRules: 0
+    m_unsmoothedPredictions: 0
+    m_replaceMissing:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_IgnoreClass: 0
+      m_ClassIndex: -1
+      m_ModesAndMeans: []
+    m_nominalToBinary:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_Numeric: 1
+      m_TransformAll: 0
+      m_needToTransform: 0
+    m_removeUseless:
+      m_OutputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_OutputQueue:
+        m_Head:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Tail:
+          this$0:
+            m_Head:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Tail:
+              this$0:
+                m_Head:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Tail:
+                  this$0:
+                    m_Head:
+                      this$0:
+                        m_Size: 0
+                    m_Tail:
+                      this$0:
+                        m_Size: 0
+                    m_Size: 0
+                m_Size: 0
+            m_Size: 0
+        m_Size: 0
+      m_OutputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputStringAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_OutputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputRelAtts:
+        m_AllowedIndices: 
+        m_Attributes:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Locators:
+          elementCount: 0
+          capacityIncrement: 0
+        m_Type: 0
+        m_Data:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_Indices: 
+        m_LocatorIndices: 
+      m_InputFormat:
+        m_RelationName: 
+        m_Attributes:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_Instances:
+          m_Size: 0
+          m_CapacityIncrement: 1
+          m_CapacityMultiplier: 2
+        m_ClassIndex: 0
+        m_Lines: 0
+        attIdx4Randomization: 0
+        attIdxOrigValues: []
+      m_NewBatch: 1
+      m_FirstBatchDone: 0
+      m_removeFilter:
+        m_OutputFormat:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_OutputQueue:
+          m_Head:
+            this$0:
+              m_Head:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Tail:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Size: 0
+          m_Tail:
+            this$0:
+              m_Head:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Tail:
+                this$0:
+                  m_Head:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Tail:
+                    this$0:
+                      m_Head: {}
+                      m_Tail: {}
+                      m_Size: 0
+                  m_Size: 0
+              m_Size: 0
+          m_Size: 0
+        m_OutputStringAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputStringAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_OutputRelAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputRelAtts:
+          m_AllowedIndices: 
+          m_Attributes:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Locators:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Type: 0
+          m_Data:
+            m_RelationName: 
+            m_Attributes:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_Instances:
+              m_Size: 0
+              m_CapacityIncrement: 1
+              m_CapacityMultiplier: 2
+            m_ClassIndex: 0
+            m_Lines: 0
+            attIdx4Randomization: 0
+            attIdxOrigValues: []
+          m_Indices: 
+          m_LocatorIndices: 
+        m_InputFormat:
+          m_RelationName: 
+          m_Attributes:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_Instances:
+            m_Size: 0
+            m_CapacityIncrement: 1
+            m_CapacityMultiplier: 2
+          m_ClassIndex: 0
+          m_Lines: 0
+          attIdx4Randomization: 0
+          attIdxOrigValues: []
+        m_NewBatch: 1
+        m_FirstBatchDone: 0
+        m_SelectCols:
+          m_RangeStrings:
+            elementCount: 0
+            capacityIncrement: 0
+          m_Invert: 1
+          m_SelectFlags: []
+          m_Upper: -1
+        m_SelectedAttributes: 
+      m_maxVariancePercentage: 99
+    m_saveInstances: 0
+    m_regressionTree: 0
+    m_useUnpruned: 0
+    m_minNumInstances: 4
+  casosEntrenamiento:
+    m_RelationName: 
+    m_Attributes:
+      m_Size: 0
+      m_CapacityIncrement: 1
+      m_CapacityMultiplier: 2
+    m_Instances:
+      m_Size: 0
+      m_CapacityIncrement: 1
+      m_CapacityMultiplier: 2
+    m_ClassIndex: 0
+    m_Lines: 0
+    attIdx4Randomization: 0
+    attIdxOrigValues: []
+  texto: {fileID: 0}
+  ESTADO: Sin conocimiento
   pelota: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
+  InstanciaPelota: {fileID: 0}
+  PuntoObjetivo: {fileID: 0}
   valorMaximoFx: 50
   valorMaximoFy: 5
   paso: 4
   Velocidad_Simulacion: 1
+  mejorFuerzaX: 0
+  mejorFuerzaY: 0
+  distanciaObjetivo: 0
+  r: {fileID: 0}
   bolosObjetivo: {fileID: 247762196}
   bolosCopia: {fileID: 8690845859422332926, guid: 62a14fd9610f8b54abd45165f3f3c8da, type: 3}
+  alturaInicialBola: 3
+  distanciaInicialBola: 2
+  tiempo: 0
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9549,7 +11354,7 @@ SceneRoots:
   - {fileID: 1528032583}
   - {fileID: 2118075073}
   - {fileID: 111728111}
-  - {fileID: 1151222080}
   - {fileID: 996052829}
+  - {fileID: 1151222080}
   - {fileID: 631024809}
   - {fileID: 1994478951}
