@@ -24,7 +24,7 @@ public class AprendizajeBolos : MonoBehaviour
     float mejorFuerzaX, mejorFuerzaY, distanciaObjetivo;
     Rigidbody r;
 
-    public GameObject bolosObjetivo;
+    public GameObject bolosObjetivo, bolosCopia;
     float alturaInicialBola = 3f;     // Altura inicial de la bola
     float distanciaInicialBola = 2f;  // Distancia inicial de la bola desde el personaje
     float tiempo;
@@ -74,6 +74,7 @@ public class AprendizajeBolos : MonoBehaviour
                 }                                                                          //FIN bucle de lanzamientos con diferentes de fuerzas
             }
 
+            Destroy(bolosObjetivo);
 
             File salida = new File("Assets/Aprendizaje Datos/Finales_Experiencias.arff");
             if (!salida.exists())
@@ -130,6 +131,7 @@ public class AprendizajeBolos : MonoBehaviour
     {
         if ((ESTADO == "Con conocimiento") && (distanciaObjetivo > 0))
         {
+            Instantiate(bolosCopia);
             Time.timeScale = 1;                                                                               //Durante el juego, el NPC razona así... (no juega aún)   
             float menorDistancia = 1e9f;
             print("-- OBJETIVO: LANZAR LA PELOTA A UNA DISTANCIA DE " + distanciaObjetivo + " m.");
