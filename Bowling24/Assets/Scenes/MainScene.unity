@@ -853,13 +853,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140624960}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17364816, y: -0, z: -0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 2, z: -3.5}
+  m_LocalRotation: {x: -0.15038373, y: 0.49240378, z: -0.08682406, w: -0.8528686}
+  m_LocalPosition: {x: 6.47, y: 2, z: 0.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1151222080}
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: -420, z: 0}
 --- !u!1001 &141695568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4987,10 +4987,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
   bolosObjetivo: {fileID: 247762196}
-  valorMaximoFz: 15
-  valorMaximoFy: 5
+  valorMaximoFz: 10
+  valorMaximoFy: 3
   paso: 1
-  Velocidad_Simulacion: 1
+  Velocidad_Simulacion: 50
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0
