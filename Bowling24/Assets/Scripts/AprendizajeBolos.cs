@@ -14,53 +14,55 @@ using weka.core.converters;
 
 public class AprendizajeBolos : MonoBehaviour
 {
-    weka.classifiers.trees.M5P saberPredecirDistancia, saberPredecirFuerzaX;
-    weka.core.Instances casosEntrenamiento;
-    Text texto;
     private string ESTADO = "Sin conocimiento";
-    public GameObject pelota;
-    GameObject InstanciaPelota, PuntoObjetivo;
-    public float valorMaximoFx, valorMaximoFy, paso, Velocidad_Simulacion = 1;
-    float mejorFuerzaX, mejorFuerzaY, distanciaObjetivo;
-    Rigidbody r;
+    GameObject instanciaBola, puntoObjetivo;
+    public GameObject bola, bolosObjetivo, bolosCopia;
+    Rigidbody rb;
+    Text texto;
 
-    public GameObject bolosObjetivo, bolosCopia;
     float alturaInicialBola = 3f;     // Altura inicial de la bola
     float distanciaInicialBola = 2f;  // Distancia inicial de la bola desde el personaje
     float tiempo;
 
+    public float valorMaximoFx, valorMaximoFy, incrementoFuerza, velocidadSimulacion = 1;
+    float mejorFuerzaX, mejorFuerzaY, distanciaObjetivo;
+    weka.classifiers.trees.M5P saberPredecirDistancia, saberPredecirFuerzaX;
+    weka.core.Instances casosEntrenamiento;
+
     void Start()
     {
-        Time.timeScale = Velocidad_Simulacion; // ...opcional: hace que se vea más rápido (recomendable hasta 5)
-        texto = Canvas.FindObjectOfType<Text>();
-        if (ESTADO == "Sin conocimiento") StartCoroutine("Entrenamiento"); // Lanza el proceso de entrenamiento
-        tiempo = Time.time;
+        Time.timeScale = velocidadSimulacion;                               // Controla la velocidad de la simulación (afecta a todo el juego)
+        texto = Canvas.FindObjectOfType<Text>();                            // Encuentra el texto en pantalla del canvas
+        if (ESTADO == "Sin conocimiento") StartCoroutine("Entrenamiento");  // Lanza la corutina de Entrenamiento
+        tiempo = Time.time;                                                 // Contador para controlar el tiempo de los lanzamientos de la bola
     }
 
     IEnumerator Entrenamiento()
     {
-        // Uso de una tabla vacía:
+        // Uso de una tabla vacía
         casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Aprendizaje Datos/Iniciales_Experiencias.arff")); // Lee fichero con variables. Sin instancias
 
-        // Uso de una tabla con los datos del último entrenamiento:
-        // casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Finales_Experiencias.arff")); // ... u otro con muchas experiencias
-
+        // Uso de una tabla con los datos del último entrenamiento
+        // casosEntrenamiento = new weka.core.Instances(new java.io.FileReader("Assets/Finales_Experiencias.arff"));
+        
         if (casosEntrenamiento.numInstances() < 10)
         {
             texto.text = "ENTRENAMIENTO: crea una tabla con las fuerzas Fx y Fy utilizadas y las distancias alcanzadas.";
-            print("Datos de entrada: valorMaximoFx=" + valorMaximoFx + " valorMaximoFy=" + valorMaximoFy + "  " + ((valorMaximoFx == 0 || valorMaximoFy == 0) ? " ERROR: alguna fuerza es siempre 0" : ""));
-            for (float Fx = 1; Fx <= valorMaximoFx; Fx += paso) // Bucle de planificación de la fuerza FX durante el entrenamiento
+            print("Datos de entrada: valorMaximoFx = " + valorMaximoFx + " valorMaximoFy = " + valorMaximoFy + " " + ((valorMaximoFx == 0 || valorMaximoFy == 0) ? " ERROR: alguna fuerza es siempre 0" : ""));
+            for (float Fx = 1; Fx <= valorMaximoFx; Fx += incrementoFuerza)     // Bucle de planificación de la fuerza Fx durante el entrenamiento
             {
-                for (float Fy = 1; Fy <= valorMaximoFy; Fy += paso) // Bucle de planificación de la fuerza FY durante el entrenamiento
+                for (float Fy = 1; Fy <= valorMaximoFy; Fy += incrementoFuerza) // Bucle de planificación de la fuerza Fy durante el entrenamiento
                 {
-                    InstanciaPelota = Instantiate(pelota) as GameObject;
-                    InstanciaPelota.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje
-                    Rigidbody rb = InstanciaPelota.GetComponent<Rigidbody>(); // Crea una pelota física
-                    rb.AddForce(new Vector3(0, Fy, Fx), ForceMode.Impulse); // y la lanza con las fuerzas Fx y Fy
+                    instanciaBola = Instantiate(bola) as GameObject;
+                    instanciaBola.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje
+                    Rigidbody rb = instanciaBola.GetComponent<Rigidbody>();     // Coge el rigidBody de la bola
+                    rb.AddForce(new Vector3(0, Fy, Fx), ForceMode.Impulse);     // y la lanza con las fuerzas Fx y Fy
 
-                    float startTime = Time.time; // Start time for the current throw
-                    yield return new WaitUntil(() => ((rb.transform.position.y <= 1.9) && (Time.time > startTime + 3)) || (rb.transform.position.z > bolosObjetivo.transform.position.z)); // ... y espera a que la pelota llegue al suelo
-                    tiempo = Time.time;
+                    float startTime = Time.time;                                // Empieza a contar cada vez que se lanza una bola
+                    yield return new WaitUntil(() => ((rb.transform.position.y <= 1.9) && (Time.time > startTime + 3)) || (rb.transform.position.z > bolosObjetivo.transform.position.z)); // Condiciones fin corutina
+                    tiempo = Time.time;                                         // Actualiza el contador
+
+                    // CÓDIGO BONITO HASTA AQUÍ
 
                     Instance casoAaprender = new Instance(casosEntrenamiento.numAttributes());
                     print("ENTRENAMIENTO: con fuerza Fx " + Fx + " y Fy=" + Fy + " se alcanzó una distancia de " + rb.transform.position.x + " m");
@@ -70,7 +72,7 @@ public class AprendizajeBolos : MonoBehaviour
                     casoAaprender.setValue(2, rb.transform.position.x); // anota la distancia alcanzada
                     casosEntrenamiento.add(casoAaprender); // guarda el registro en la lista casosEntrenamiento
                     rb.isKinematic = true; rb.GetComponent<Collider>().isTrigger = true; // ...opcional: paraliza la pelota
-                    Destroy(InstanciaPelota, 1); // ...opcional: destruye la pelota
+                    Destroy(instanciaBola, 1); // ...opcional: destruye la pelota
                 }                                                                          //FIN bucle de lanzamientos con diferentes de fuerzas
             }
 
@@ -119,10 +121,10 @@ public class AprendizajeBolos : MonoBehaviour
         //distanciaObjetivo = UnityEngine.Random.Range(maximaDistanciaAlcanzada * 0.2f, maximaDistanciaAlcanzada * 0.8f);  //Opcional: calculo aleatorio de la distancia 
 
         /////////////////    SITUA LA CANASTA EN LA "distanciaObjetivo"  ESTIMADA   ///////////////////
-        PuntoObjetivo = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        PuntoObjetivo.transform.position = new Vector3(0, 1, distanciaObjetivo);
-        PuntoObjetivo.transform.localScale = new Vector3(1.1f, 1, 1.1f);
-        PuntoObjetivo.GetComponent<Collider>().isTrigger = true;
+        puntoObjetivo = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        puntoObjetivo.transform.position = new Vector3(0, 1, distanciaObjetivo);
+        puntoObjetivo.transform.localScale = new Vector3(1.1f, 1, 1.1f);
+        puntoObjetivo.GetComponent<Collider>().isTrigger = true;
 
         /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -139,7 +141,7 @@ public class AprendizajeBolos : MonoBehaviour
             //Si usa dos bucles Fx y Fy con "modelo fisico aproximado", complejidad n^2
             //Reduce la complejidad con un solo bucle FOR, así
 
-            for (float Fy = 1; Fy < valorMaximoFy; Fy = Fy + paso)                                            //Bucle FOR con fuerza Fy, deduce Fx = f (Fy, distancia) y escoge mejor combinacion         
+            for (float Fy = 1; Fy < valorMaximoFy; Fy = Fy + incrementoFuerza)                                            //Bucle FOR con fuerza Fy, deduce Fx = f (Fy, distancia) y escoge mejor combinacion         
             {
                 Instance casoPrueba = new Instance(casosEntrenamiento.numAttributes());
                 casoPrueba.setDataset(casosEntrenamiento);
@@ -168,10 +170,10 @@ public class AprendizajeBolos : MonoBehaviour
             }
             else
             {
-                InstanciaPelota = Instantiate(pelota) as GameObject;
-                InstanciaPelota.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje
-                r = InstanciaPelota.GetComponent<Rigidbody>();                                                        //EN EL JUEGO: utiliza la pelota física del juego (si no existe la crea)
-                r.AddForce(new Vector3(0, mejorFuerzaY, mejorFuerzaX), ForceMode.Impulse);                            //la lanza en el videojuego con la fuerza encontrada
+                instanciaBola = Instantiate(bola) as GameObject;
+                instanciaBola.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje
+                rb = instanciaBola.GetComponent<Rigidbody>();                                                        //EN EL JUEGO: utiliza la pelota física del juego (si no existe la crea)
+                rb.AddForce(new Vector3(0, mejorFuerzaY, mejorFuerzaX), ForceMode.Impulse);                            //la lanza en el videojuego con la fuerza encontrada
                 print("DECISION REALIZADA: Se lanzó pelota con fuerza Fx =" + mejorFuerzaX + " y Fy= " + mejorFuerzaY);
                 ESTADO = "Acción realizada";
             }
@@ -179,11 +181,11 @@ public class AprendizajeBolos : MonoBehaviour
         if (ESTADO == "Acción realizada")
         {
             texto.text = "Para una canasta a " + distanciaObjetivo.ToString("0.000") + " m, las fuerzas Fx y Fy a utilizar será: " + mejorFuerzaX.ToString("0.000") + "N y " + mejorFuerzaY.ToString("0.000") + "N, respectivamente";
-            if (r.transform.position.y < 0)                                            //cuando la pelota cae por debajo de 0 m
+            if (rb.transform.position.y < 0)                                            //cuando la pelota cae por debajo de 0 m
             {                                                                          //escribe la distancia en x alcanzada
                 print("La canasta está a una distancia de " + distanciaObjetivo + " m");
-                print("La pelota lanzada llegó a " + r.transform.position.x + ". El error fue de " + (r.transform.position.x - distanciaObjetivo).ToString("0.000000") + " m");
-                r.isKinematic = true;
+                print("La pelota lanzada llegó a " + rb.transform.position.x + ". El error fue de " + (rb.transform.position.x - distanciaObjetivo).ToString("0.000000") + " m");
+                rb.isKinematic = true;
                 ESTADO = "FIN";
             }
         }
