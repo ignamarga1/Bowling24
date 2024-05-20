@@ -128,6 +128,7 @@ public class AprendizajeBolos : MonoBehaviour
         puntoObjetivo.transform.localScale = new Vector3(1.1f, 1, 1.1f);
         puntoObjetivo.GetComponent<Collider>().isTrigger = true;
     }
+
     // DURANTE DEL JUEGO: aplica lo aprendido para lanzar a los bolos
     void FixedUpdate()                                                                                 
     {

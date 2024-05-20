@@ -623,7 +623,7 @@ Transform:
   m_GameObject: {fileID: 111728107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4, z: -55}
+  m_LocalPosition: {x: 0, y: 4, z: -60}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -677,14 +677,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111728107}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2c983c962d5be24429d992bbed16f2b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Entrada: 
   Salida: 
-  NPC_Bolero: {fileID: 0}
+  NPC_Bolero: {fileID: 996052824}
   dialogoSoloConHumano: 0
 --- !u!114 &111728118
 MonoBehaviour:
@@ -717,7 +717,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1303,11 +1303,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3074412130647389699, guid: 7afa32734880f9f439b8ad6b6f6220e2, type: 3}
   m_PrefabInstance: {fileID: 218045747}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &247762196 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8690845859422332926, guid: 62a14fd9610f8b54abd45165f3f3c8da, type: 3}
-  m_PrefabInstance: {fileID: 2081706177245613355}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &273871360
 PrefabInstance:
@@ -3539,7 +3534,7 @@ Transform:
   m_GameObject: {fileID: 853417831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3893,7 +3888,7 @@ Transform:
   m_GameObject: {fileID: 996052824}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.7, y: 2.5, z: -54.5}
+  m_LocalPosition: {x: 34.85, y: 2.5, z: -34.54}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3906,14 +3901,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 996052824}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a00511e1dfc75e049a126941b467a48f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Entrada: 
   Salida: 
-  NPC_Player: {fileID: 0}
+  NPC_Player: {fileID: 996052824}
 --- !u!1 &1009621307
 GameObject:
   m_ObjectHideFlags: 0
@@ -4705,9 +4700,9 @@ GameObject:
   - component: {fileID: 1151222079}
   - component: {fileID: 1151222078}
   - component: {fileID: 1151222077}
-  - component: {fileID: 1151222085}
+  - component: {fileID: 1151222081}
   m_Layer: 0
-  m_Name: NPC_WekaPrueba
+  m_Name: NPC_Guardia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4793,31 +4788,28 @@ Transform:
   m_GameObject: {fileID: 1151222076}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.5, z: -22.44}
+  m_LocalPosition: {x: 7.75, y: 2.5, z: -43.95}
   m_LocalScale: {x: 2, y: 3, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1151222085
+--- !u!114 &1151222081
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151222076}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f416ea98d2b441944b957578554ca23d, type: 3}
+  m_Script: {fileID: 11500000, guid: f9971cab544ffa34d8227312e79d670b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
-  bolosObjetivo: {fileID: 247762196}
-  bolosCopia: {fileID: 8690845859422332926, guid: 62a14fd9610f8b54abd45165f3f3c8da, type: 3}
-  valorMaximoFx: 30
-  valorMaximoFy: 5
-  incrementoFuerza: 2
-  velocidadSimulacion: 3
+  Entrada: 
+  Salida: 
+  player: {fileID: 111728107}
+  dialogoSoloConHumano: 1
 --- !u!1001 &1159240452
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8909,7 +8901,7 @@ Transform:
   m_GameObject: {fileID: 2051881607}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35}
+  m_LocalPosition: {x: 0, y: 0, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9794,9 +9786,9 @@ SceneRoots:
   - {fileID: 2081706177245613355}
   - {fileID: 1528032583}
   - {fileID: 2118075073}
+  - {fileID: 1452385778}
   - {fileID: 111728111}
   - {fileID: 996052829}
   - {fileID: 1151222080}
   - {fileID: 631024809}
   - {fileID: 1994478951}
-  - {fileID: 1452385778}
