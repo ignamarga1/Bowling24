@@ -4645,7 +4645,7 @@ MonoBehaviour:
   bola: {fileID: 3072460960068204937, guid: bc3cf2b25f667bf4d819038ba0a77585, type: 3}
   bolosObjetivo: {fileID: 247762196}
   bolosCopia: {fileID: 8690845859422332926, guid: 62a14fd9610f8b54abd45165f3f3c8da, type: 3}
-  valorMaximoFx: 20
+  valorMaximoFx: 35
   valorMaximoFy: 5
   incrementoFuerza: 2
   velocidadSimulacion: 3

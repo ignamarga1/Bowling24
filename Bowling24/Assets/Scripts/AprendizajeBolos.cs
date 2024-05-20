@@ -124,7 +124,7 @@ public class AprendizajeBolos : MonoBehaviour
 
         // SITÚA EL OBJETIVO DE LOS BOLOS 
         puntoObjetivo = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
-        puntoObjetivo.transform.position = new Vector3(0, 0, distanciaObjetivo);
+        puntoObjetivo.transform.position = new Vector3(0, 1, distanciaObjetivo);
         puntoObjetivo.transform.localScale = new Vector3(1.1f, 1, 1.1f);
         puntoObjetivo.GetComponent<Collider>().isTrigger = true;
     }
@@ -187,7 +187,7 @@ public class AprendizajeBolos : MonoBehaviour
             texto.text = "Para unos bolos a " + distanciaObjetivo.ToString("0.000") + "m, las fuerzas Fx y Fy a utilizar serán: " + mejorFuerzaX.ToString("0.000") + "N y " + mejorFuerzaY.ToString("0.000") + "N, respectivamente";
             
             // Cuando la bola cae por debajo de 0 m
-            if (rb.transform.position.y < 0)                                            
+            if (rb.transform.position.y < 1.8)                                            
             {                                                                          
                 // Escribe la distancia en x alcanzada
                 print("Los bolos están a una distancia de " + distanciaObjetivo + "m");
