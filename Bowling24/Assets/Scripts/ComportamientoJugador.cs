@@ -73,12 +73,23 @@ public class ComportamientoJugador : MonoBehaviour
 
         // Detecta NPC_Guardia
         RaycastHit hit;
+        LayerMask npcLayerMask = LayerMask.GetMask("NPC");
         if (!detectadoGuardia && Physics.Raycast(transform.position, NPC_Guardia.transform.position - transform.position, out hit, rangoDeteccion))
         {
-            if (hit.collider.CompareTag("NPC"))
+            if (hit.collider.CompareTag("NPC") && hit.collider.gameObject == NPC_Guardia)
             {
                 print("Detectado NPC_Guardia con RayCast");
                 detectadoGuardia = true;    
+                agente.speed = 0f;          // Se detiene
+                estado = Estado.DIALOGAR;   // Pasa al estado DIALOGAR
+            }
+        }
+        if (!detectadoBolero && Physics.Raycast(transform.position, NPC_Bolero.transform.position - transform.position, out hit, rangoDeteccion))
+        {
+            if (hit.collider.CompareTag("NPC") && hit.collider.gameObject == NPC_Bolero) 
+            {
+                print("Detectado NPC_Bolero con RayCast");
+                detectadoBolero = true;
                 agente.speed = 0f;          // Se detiene
                 estado = Estado.DIALOGAR;   // Pasa al estado DIALOGAR
             }

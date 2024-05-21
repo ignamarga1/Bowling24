@@ -39,7 +39,7 @@ public class ConversacionNPC_Guardia : MonoBehaviour
             +"Eres un señor de mediana edad que trabaja como guardia en una bolera."
      
             //Comportamiento ante situaciones normales incluidos casos especiales 
-            +"Tu deber es el de no dejar pasar a la bolera a personas que no te digan la contraseña."
+            +"Tu deber es el de no dejar pasar a la bolera a personas que no te digan la contraseña secreta."
             +"Si ellos dicen otra palabra que no sea la contraseña no podrán entrar y tendrás que seguir insistiendo en que la digan."
             +"Si consiguen decir la palabra correcta, debes dejarlos pasar. La contraseña es COLACAO"
             )

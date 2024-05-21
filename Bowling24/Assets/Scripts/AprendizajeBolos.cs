@@ -115,7 +115,7 @@ public class AprendizajeBolos : MonoBehaviour
         }
 
         // PRUEBA: estimación de la distancia a los bolos
-        distanciaObjetivo = bolosObjetivo.transform.position.z + 4;    
+        distanciaObjetivo = bolosObjetivo.transform.position.z + 5;    
 
         // 2ª opción: generación aleatoria de una distancia dependiendo de sus límites:        
         //AttributeStats estadisticasDistancia = casosEntrenamiento.attributeStats(2);        // OPCIONAL: inicializa las estadisticas de las distancias
@@ -127,6 +127,8 @@ public class AprendizajeBolos : MonoBehaviour
         puntoObjetivo.transform.position = new Vector3(0, 1, distanciaObjetivo);
         puntoObjetivo.transform.localScale = new Vector3(1.1f, 1, 1.1f);
         puntoObjetivo.GetComponent<Collider>().isTrigger = true;
+
+        Destroy(bolosObjetivo, 1);
     }
 
     // DURANTE DEL JUEGO: aplica lo aprendido para lanzar a los bolos
@@ -172,6 +174,10 @@ public class AprendizajeBolos : MonoBehaviour
             }
             else
             {
+                if(bolosObjetivo != null)
+                {
+                    Destroy(bolosObjetivo);
+                }
                 bolosObjetivo = Instantiate(bolosCopia) as GameObject;
                 instanciaBola = Instantiate(bola) as GameObject;
                 instanciaBola.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje

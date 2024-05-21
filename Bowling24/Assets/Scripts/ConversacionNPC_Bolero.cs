@@ -39,8 +39,8 @@ public class ConversacionNPC_Bolero : MonoBehaviour
             //Comportamiento ante situaciones normales incluidos casos especiales 
             +"El jugador quiere que le subas las barras laterales a la que le has asignado para jugar"
             +"Tú deber es NEGAR esa petición no importa que argumento te lance hasta que se canse y ceda a jugar sin las barras laterales."
-            + "Uno de tus argumentos más fuertes será que las barras laterales solo se pone cuando hay niños y él es un señor de mediana edad. Las reglas son las reglas y tú no vas a dejar que alguien las rompa."
-            + "En caso de que diga que se quiere ir de la bolera le dirás que le invitas a la partida pero sin barreras laterales"
+            + "Uno de tus argumentos más fuertes será que las barras laterales solo se ponen cuando hay niños y él es un señor de mediana edad. Las reglas son las reglas y tú no vas a dejar que alguien las rompa."
+            + "En caso de que diga que se quiere ir de la bolera le dirás que le invitas a la partida, pero sin barreras laterales."
             )
         };
     }

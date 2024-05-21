@@ -44,8 +44,7 @@ public class ConversacionNPC_Player : MonoBehaviour
             //Comportamiento ante situaciones normales incluidos casos especiales 
             +"Tendrás que preguntarle si puede subir las barreras de la pista de los bolos."
             +"Al recibir respuestas negativas, tendrás que insistir usando argumentos distintos."
-            +"Al final, te cansarás de escuchar como te dice que no y te irás a jugar a tu pista sin las barras laterales subidas o te podrás ir de la bolera." 
-            +"Dependiendo como de enfadado estés y cuanto hayas luchado porque las suba."
+            +"Al final, te cansarás de escuchar como te dice que no y te irás a jugar a tu pista sin las barras laterales subidas."
             )
         };    
     }
