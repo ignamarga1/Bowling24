@@ -20,7 +20,7 @@ public class AprendizajeBolos : MonoBehaviour
     Rigidbody rb;
     Text texto;
 
-    float alturaInicialBola = 3f;     // Altura inicial de la bola
+    float alturaInicialBola = 4f;     // Altura inicial de la bola
     float distanciaInicialBola = 2f;  // Distancia entre la bola y el personaje
     float tiempo;
 
