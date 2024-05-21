@@ -1,29 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.ShaderData;
 
 public class ComportamientoJugador : MonoBehaviour
 {
-    public NavMeshAgent agent;
-    public GameObject[] pathPositions;
-    public int actualObjective;
+    public NavMeshAgent agente;
+    public GameObject[] caminoPosiciones;
+    public int posObjetivoActual;
 
-    public GameObject NPC_Bolero, NPC_Guardia;
-    private float rangoDeteccion = 10f;
+    public GameObject camara, NPC_Player, NPC_Bolero, NPC_Guardia;
+    private float rangoDeteccion = 8f;
 
-    enum Estado { ANDAR, DIALOGAR, JUGAR}
+    enum Estado { ANDAR, DIALOGAR, JUGAR }
     Estado estado;
+    private Boolean detectadoGuardia = false, detectadoBolero = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (agent == null)
+        if (agente == null)
         {
             estado = Estado.ANDAR;
-            agent = GetComponent<NavMeshAgent>();
-            agent.SetDestination(pathPositions[0].transform.position);   // The first path position the agent has to go is the 0
+            agente = GetComponent<NavMeshAgent>();
+            agente.SetDestination(caminoPosiciones[0].transform.position);   // The first path position the agent has to go is the 0
         }
     }
 
@@ -48,39 +51,60 @@ public class ComportamientoJugador : MonoBehaviour
 
     private void Andar()
     {
-        // When the agent reaches the position
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        // Cuando el agente llega a la posición
+        if (agente.remainingDistance <= agente.stoppingDistance)
         {
-            actualObjective++;
-
-            // Sets the next position of the path
-            if (actualObjective >= pathPositions.Length)
+            // Si es la última, pasa a jugar a los bolos
+            if (posObjetivoActual == caminoPosiciones.Length - 1)
             {
-                actualObjective = 0;
+                agente.speed = 0f;      // Se detiene
+                estado = Estado.JUGAR;  // Pasa al estado JUGAR
             }
-            agent.destination = pathPositions[actualObjective].transform.position;
+
+            posObjetivoActual++;
+
+            // Actualiza la posObjetivoActual
+            if (posObjetivoActual >= caminoPosiciones.Length)
+            {
+                posObjetivoActual = 0;
+            }
+            agente.destination = caminoPosiciones[posObjetivoActual].transform.position;
         }
 
-        // Detectar NPC_Guardia
+        // Detecta NPC_Guardia
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, NPC_Guardia.transform.position - transform.position, out hit, rangoDeteccion))
+        if (!detectadoGuardia && Physics.Raycast(transform.position, NPC_Guardia.transform.position - transform.position, out hit, rangoDeteccion))
         {
             if (hit.collider.CompareTag("NPC"))
             {
-                agent.speed = 0f;                                   // Se detiene
-                transform.LookAt(NPC_Guardia.transform.position);   // Le mira
-                estado = Estado.DIALOGAR;                           // Cambio estado a dialogar
+                print("Detectado NPC_Guardia con RayCast");
+                detectadoGuardia = true;    
+                agente.speed = 0f;          // Se detiene
+                estado = Estado.DIALOGAR;   // Pasa al estado DIALOGAR
             }
         }
     }
 
     private void Dialogar()
     {
-
+        // Una vez que pulsamos la tecla espacio, pasa de DIALOGAR a ANDAR
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            agente.speed = 5f;      // Retoma su velocidad
+            estado = Estado.ANDAR;  // Pasa al estado ANDAR
+        }
     }
 
     private void Jugar()
     {
+        // Movimiento de la cámara
+        Vector3 nuevaPosicion = new Vector3(20f, 10f, -20f);
+        camara.transform.position = Vector3.Lerp(camara.transform.position, nuevaPosicion, Time.deltaTime); 
 
+        // Rotación de la cámara
+        Quaternion nuevaRotacion = Quaternion.Euler(20f, -50f, 0f); 
+        camara.transform.rotation = Quaternion.Lerp(camara.transform.rotation, nuevaRotacion, Time.deltaTime * 0.5f); 
+
+        NPC_Player.GetComponent<AprendizajeBolos>().enabled = true; // Activa el script de aprendizaje
     }
 }
