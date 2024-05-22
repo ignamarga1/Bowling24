@@ -20,7 +20,7 @@ public class AprendizajeBolos : MonoBehaviour
     Rigidbody rb;
     Text texto;
 
-    float alturaInicialBola = 4f;     // Altura inicial de la bola
+    float alturaInicialBola = 3f;     // Altura inicial de la bola
     float distanciaInicialBola = 2f;  // Distancia entre la bola y el personaje
     float tiempo;
 
@@ -89,7 +89,7 @@ public class AprendizajeBolos : MonoBehaviour
             saver.writeBatch();
         }
 
-        //APRENDIZAJE CONOCIMIENTO 
+        // APRENDIZAJE CONOCIMIENTO 
         saberPredecirFuerzaX = new M5P();                           // Crea un algoritmo de aprendizaje M5P (árboles de regresión)
         casosEntrenamiento.setClassIndex(0);                        // y hace que aprenda Fx dada la distancia y Fy
         saberPredecirFuerzaX.buildClassifier(casosEntrenamiento);   // REALIZA EL APRENDIZAJE DE Fx A PARTIR DE LA DISTANCIA Y Fy
@@ -174,10 +174,6 @@ public class AprendizajeBolos : MonoBehaviour
             }
             else
             {
-                if(bolosObjetivo != null)
-                {
-                    Destroy(bolosObjetivo);
-                }
                 bolosObjetivo = Instantiate(bolosCopia) as GameObject;
                 instanciaBola = Instantiate(bola) as GameObject;
                 instanciaBola.transform.position = new Vector3(transform.position.x, alturaInicialBola, transform.position.z + distanciaInicialBola); // Posición inicial en frente del personaje
@@ -193,7 +189,7 @@ public class AprendizajeBolos : MonoBehaviour
         {
             texto.text = "Para unos bolos a " + distanciaObjetivo.ToString("0.000") + "m, las fuerzas Fx y Fy a utilizar serán: " + mejorFuerzaX.ToString("0.000") + "N y " + mejorFuerzaY.ToString("0.000") + "N, respectivamente";
             
-            // Cuando la bola cae por debajo de 0 m
+            // Cuando la bola cae por debajo de 1.8 m
             if (rb.transform.position.y < 1.8)                                            
             {                                                                          
                 // Escribe la distancia en x alcanzada

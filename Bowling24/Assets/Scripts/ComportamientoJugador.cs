@@ -73,7 +73,6 @@ public class ComportamientoJugador : MonoBehaviour
 
         // Detecta NPC_Guardia
         RaycastHit hit;
-        LayerMask npcLayerMask = LayerMask.GetMask("NPC");
         if (!detectadoGuardia && Physics.Raycast(transform.position, NPC_Guardia.transform.position - transform.position, out hit, rangoDeteccion))
         {
             if (hit.collider.CompareTag("NPC") && hit.collider.gameObject == NPC_Guardia)
@@ -84,6 +83,8 @@ public class ComportamientoJugador : MonoBehaviour
                 estado = Estado.DIALOGAR;   // Pasa al estado DIALOGAR
             }
         }
+
+        // Detecta NPC_Bolero
         if (!detectadoBolero && Physics.Raycast(transform.position, NPC_Bolero.transform.position - transform.position, out hit, rangoDeteccion))
         {
             if (hit.collider.CompareTag("NPC") && hit.collider.gameObject == NPC_Bolero) 
